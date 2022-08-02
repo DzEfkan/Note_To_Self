@@ -9,9 +9,16 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import com.example.notetoself.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private var tempNote = Note()
+
+    fun createNewNote(n: Note){
+        tempNote = n
+    }
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -31,6 +38,19 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+        }
+        //Temporary code
+        val buttonShowNote = findViewById<Button>(R.id.buttonShowNote)
+
+        buttonShowNote.setOnClickListener{
+            //Create a new DialogShowNote called dialog
+            val dialog = DialogShowNote()
+
+            //Send a new note via sendNoteSelected function
+            dialog.sendNoteSelected(tempNote)
+
+            //createThe dialog
+            dialog.show(supportFragmentManager, "123")
         }
     }
 

@@ -9,6 +9,7 @@
 
     <string name="action_add">add</string>
     <string name="title_hint">Title</string>
+    <string name="idea_text">Idea</string>
     <string name="description_hint">Description</string>
     <string name="important_text">Important</string>
     <string name="todo_text">To do</string>
